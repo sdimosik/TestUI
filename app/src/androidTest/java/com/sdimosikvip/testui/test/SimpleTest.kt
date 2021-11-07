@@ -15,7 +15,7 @@ class SimpleTest : TestCase() {
     val activityTestRule = ActivityTestRule(MainActivity::class.java, true, false)
 
     @Test
-    fun test() = run {
+    fun simpleTest() = run {
 
         step("Open Main Activity") {
             activityTestRule.launchActivity(null)

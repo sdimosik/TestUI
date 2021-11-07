@@ -1,7 +1,7 @@
 package com.sdimosikvip.testui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.sdimosikvip.testui.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -12,8 +12,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setupListener()
+    }
+
+    private fun setupListener() {
         with(binding) {
-            setContentView(root)
 
             activityMainPurpleBtn.setOnClickListener {
                 binding.activityMainText.setBackgroundColor(resources.getColor(R.color.purple_200));
