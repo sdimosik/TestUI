@@ -12,14 +12,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        with(binding) {
+            setContentView(root)
 
-        binding.purpleBtn.setOnClickListener {
-            binding.textView.setBackgroundColor(resources.getColor(R.color.purple_200));
-        }
+            activityMainPurpleBtn.setOnClickListener {
+                binding.activityMainText.setBackgroundColor(resources.getColor(R.color.purple_200));
+            }
 
-        binding.whiteBtn.setOnClickListener {
-            binding.textView.setBackgroundColor(resources.getColor(R.color.white));
+            activityMainWhiteBtn.setOnClickListener {
+                binding.activityMainText.setBackgroundColor(resources.getColor(R.color.white));
+            }
         }
     }
 }
