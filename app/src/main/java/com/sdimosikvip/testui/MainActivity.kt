@@ -1,7 +1,13 @@
 package com.sdimosikvip.testui
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.sdimosikvip.testui.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +32,36 @@ class MainActivity : AppCompatActivity() {
 
             activityMainWhiteBtn.setOnClickListener {
                 binding.activityMainText.setBackgroundColor(resources.getColor(R.color.white));
+            }
+
+            activityMainImg.setOnClickListener {
+                Glide.with(baseContext)
+                    .load("https://moodle.htwchur.ch/pluginfile.php/124614/mod_page/content/4/example.jpg")
+                    .listener(object : RequestListener<Drawable> {
+
+                        override fun onLoadFailed(
+                            e: GlideException?,
+                            model: Any?,
+                            target: Target<Drawable>?,
+                            isFirstResource: Boolean
+                        ): Boolean {
+                            binding.activityMainWhiteStatusImg.text = "Failed"
+                            return false
+                        }
+
+                        override fun onResourceReady(
+                            resource: Drawable?,
+                            model: Any?,
+                            target: Target<Drawable>?,
+                            dataSource: DataSource?,
+                            isFirstResource: Boolean
+                        ): Boolean {
+                            binding.activityMainWhiteStatusImg.text = "Exist"
+                            return false
+                        }
+
+                    })
+                    .into(binding.activityMainImg)
             }
         }
     }
