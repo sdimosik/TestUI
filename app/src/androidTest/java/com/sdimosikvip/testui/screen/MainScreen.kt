@@ -16,5 +16,4 @@ object MainScreen : KScreen<MainScreen>() {
     val whiteButton = KButton { withId(R.id.activity_main__white_btn) }
     val textView = KTextView { withId(R.id.activity_main__text) }
     val imgView = KImageView { withId(R.id.activity_main__img) }
-    val statusTextView = KTextView { withId(R.id.activity_main__status) }
 }

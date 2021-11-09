@@ -52,7 +52,7 @@ class SimpleTest : TestCase() {
             step("Click on Img and Check Failed") {
                 MainScreen {
                     imgView.click()
-                    statusTextView.hasText("Failed")
+                    imgView.hasTag("Failed")
                 }
             }
 
@@ -63,7 +63,7 @@ class SimpleTest : TestCase() {
             step("Click on Img and Check Exist") {
                 MainScreen {
                     imgView.click()
-                    statusTextView.hasText("Exist")
+                    imgView.hasTag("Exist")
                 }
             }
         }

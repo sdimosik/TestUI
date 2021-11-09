@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                             target: Target<Drawable>?,
                             isFirstResource: Boolean
                         ): Boolean {
-                            binding.activityMainStatus.text = "Failed"
+                            binding.activityMainImg.tag = "Failed"
                             return false
                         }
 
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                             dataSource: DataSource?,
                             isFirstResource: Boolean
                         ): Boolean {
-                            binding.activityMainStatus.text = "Exist"
+                            binding.activityMainImg.tag = "Exist"
                             return false
                         }
 
