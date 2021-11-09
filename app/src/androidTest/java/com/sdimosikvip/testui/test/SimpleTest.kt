@@ -42,7 +42,7 @@ class SimpleTest : TestCase() {
         before {
             device.network.disable()
         }.after {
-
+            device.network.enable()
         }.run {
 
             step("Open Main Activity") {
