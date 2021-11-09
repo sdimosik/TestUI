@@ -35,4 +35,36 @@ class SimpleTest : TestCase() {
             }
         }
     }
+
+    @Test
+    fun simpleLoadImgTest() =
+
+        before {
+            device.network.disable()
+        }.after {
+
+        }.run {
+
+            step("Open Main Activity") {
+                activityTestRule.launchActivity(null)
+            }
+
+            step("Click on Img and Check Failed") {
+                MainScreen {
+                    imgView.click()
+                    statusTextView.hasText("Failed")
+                }
+            }
+
+            step("Turn on network") {
+                device.network.enable()
+            }
+
+            step("Click on Img and Check Exist") {
+                MainScreen {
+                    imgView.click()
+                    statusTextView.hasText("Exist")
+                }
+            }
+        }
 }

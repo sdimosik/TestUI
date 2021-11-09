@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
@@ -37,6 +38,8 @@ class MainActivity : AppCompatActivity() {
             activityMainImg.setOnClickListener {
                 Glide.with(baseContext)
                     .load("https://moodle.htwchur.ch/pluginfile.php/124614/mod_page/content/4/example.jpg")
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true)
                     .listener(object : RequestListener<Drawable> {
 
                         override fun onLoadFailed(
@@ -45,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                             target: Target<Drawable>?,
                             isFirstResource: Boolean
                         ): Boolean {
-                            binding.activityMainWhiteStatusImg.text = "Failed"
+                            binding.activityMainStatus.text = "Failed"
                             return false
                         }
 
@@ -56,7 +59,7 @@ class MainActivity : AppCompatActivity() {
                             dataSource: DataSource?,
                             isFirstResource: Boolean
                         ): Boolean {
-                            binding.activityMainWhiteStatusImg.text = "Exist"
+                            binding.activityMainStatus.text = "Exist"
                             return false
                         }
 

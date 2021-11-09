@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/activity_main__purple_btn" />
 
     <TextView
-        android:id="@+id/activity_main__white_status_img"
+        android:id="@+id/activity_main__status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
